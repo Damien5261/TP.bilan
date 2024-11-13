@@ -7,7 +7,7 @@
 -Une liaison SSH pour le lier à Git
 
 # Installation de docker et docker-compose :
-Pour celà j'ai utilisé ce script bash :
+Pour celà j'ai utilisé ce script bash dans mon fichier  install_docker.sh :
 
 #!/bin/bash
 
