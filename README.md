@@ -6,8 +6,9 @@
 -Une Connexion internet pour télécharger docker, docker-compose et les images sur docker-hub
 -Une liaison SSH pour le lier à Git
 
+Pour commencer, j'ai utilisé ce script bash dans mon fichier install_docker.sh :
+
 # Installation de docker et docker-compose :
-Pour celà j'ai utilisé ce script bash dans mon fichier  install_docker.sh :
 
 #!/bin/bash
 
