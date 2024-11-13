@@ -1,3 +1,11 @@
+
+
+# Prérequis du TP : 
+
+-VM debian 11 ou 12
+-Une Connexion internet pour télécharger docker, docker-compose et les images sur docker-hub
+-Une liaison SSH pour le lier à Git
+
 # Installation de docker et docker-compose :
 Pour celà j'ai utilisé ce script bash :
 
@@ -71,7 +79,73 @@ echo "Installation de Docker et Docker Compose terminée avec succès."
 
 # Installation de wordpress
 
-Pour installer wordpress avec docker  il suffira juste de lancer un docker run -p 8080:80 -d wordpress
+Pour installer wordpress avec docker j'ai utilisé deux commandes : 
+- docker pull wordpress : pour télécharger l'image de wordpress grâce au docker hub
+-docker run -p 8080:80 -d wordpress : pour le déployer
 
 Le -p sert à désigner le port que nous souhaitons attribuer au container. Ceci est complètement modifiable à notre guise , dans mon cas mon wordpress est en 192.160.20.78:8080
 Le -d sert à lancer le container
+
+# Installation de zabbix : 
+
+version: '3.5'
+
+services:
+  zabbix-db:
+    image: zabbix/zabbix-server-mysql:latest
+    container_name: zabbix-db
+    environment:
+      MYSQL_ROOT_PASSWORD: zabbix_password
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix_password
+      MYSQL_DATABASE: zabbix
+    volumes:
+      - zabbix-db-data:/var/lib/mysql
+    networks:
+      - zabbix-net
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:latest
+    container_name: zabbix-server
+    environment:
+      DB_SERVER_HOST: zabbix-db
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix_password
+      MYSQL_DATABASE: zabbix
+      ZBX_JAVA_GATEWAY: zabbix-java-gateway
+    depends_on:
+      - zabbix-db
+    ports:
+      - "10051:10051"
+    networks:
+      - zabbix-net
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-mysql:latest
+    container_name: zabbix-web
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      DB_SERVER_HOST: zabbix-db
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix_password
+      MYSQL_DATABASE: zabbix
+    ports:
+      - "80:8081"
+    depends_on:
+      - zabbix-server
+    networks:
+      - zabbix-net
+
+  zabbix-java-gateway:
+    image: zabbix/zabbix-java-gateway:latest
+    container_name: zabbix-java-gateway
+    networks:
+      - zabbix-net
+
+networks:
+  zabbix-net:
+
+volumes:
+  zabbix-db-data:
+
+
