@@ -1,5 +1,4 @@
-Installation de docker et docker compose : 
-
+# Installation de docker et docker-compose :
 Pour celà j'ai utilisé ce script bash :
 
 #!/bin/bash
