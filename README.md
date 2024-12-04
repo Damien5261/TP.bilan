@@ -12,13 +12,13 @@ Pour commencer, j'ai utilisé ce script bash dans mon fichier install_docker.sh 
 
 #!/bin/bash
 
-# Il faut vérifier que vous êtes bien en root
+
 if [ "$EUID" -ne 0 ]; then
   echo "Veuillez exécuter ce script en tant que root ou avec sudo."
   exit 1
 fi
 
-# Mettre à jour les paquets et installer les dépendances nécessaires
+
 echo "Mise à jour des paquets et installation des dépendances..."
 apt update && apt install -y \
     apt-transport-https \
@@ -26,22 +26,20 @@ apt update && apt install -y \
     curl \
     gnupg \
     lsb-release
-
-# Ajouter ensuite la clé GPG officielle de Docker
 echo "Ajout de la clé GPG de Docker..."
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-# Ajouter maintenant le dépôt Docker à la liste des sources
+
 echo "Ajout du dépôt Docker..."
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Mettre à jour la liste des paquets avec le dépôt Docker et installer Docker
+
 echo "Installation de Docker..."
 apt update && apt install -y docker-ce docker-ce-cli containerd.io
 
-# Vérifier si Docker est installé correctement
+
 echo "Vérification de l'installation de Docker..."
 docker --version
 if [ $? -ne 0 ]; then
