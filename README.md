@@ -16,8 +16,8 @@ il faudra réaliser les commandes suivantes :
 "git clone https://github.com/Damien5261/TP.bilan"
 la commande suivante : "ls" va nous permettre de voir si le répertoire a été installer.
 "cd TP.bilan" pour se rendre dans le répertoire
-"chmod +x docker.compose" va permettre de rendre le fichier éxécutable
-Et il suffit maintenant de l'installer avec la commande "./docker.compose"
+"chmod +x install.docker" va permettre de rendre le fichier éxécutable
+Et il suffit maintenant de l'installer avec la commande "./install.docker"
  
 # Installe de Docker Compose
 DOCKER_COMPOSE_VERSION="2.1.1" # Dernière version stable à vérifier
