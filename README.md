@@ -3,15 +3,18 @@
 # Prérequis du TP : 
 
 -VM debian 11 ou 12
+
 -Une Connexion internet pour télécharger docker, docker-compose et les images sur docker-hub
+
 -Une liaison SSH pour le lier à Git
 
 # Installation de Git
 
+En étant en utilisateur root
+
 Voici les commandes à faire :
 
 "apt install git"
-
 
 "git clone https://github.com/Damien5261/TP.bilan" pour installer le répertoire Git contenant mes fichiers 
 
