@@ -53,8 +53,11 @@ Pour installer wordpress avec docker j'ai utilisé deux commandes :
 - docker pull wordpress : pour télécharger l'image de wordpress grâce au docker hub
 -docker run -p 8080:80 -d wordpress : pour le déployer
 
-Le -p sert à désigner le port que nous souhaitons attribuer au container. Ceci est complètement modifiable à notre guise , dans mon cas mon wordpress est en 192.160.20.78:8080
+Le -p sert à désigner le port que nous souhaitons attribuer au container. Ceci est complètement modifiable à notre guise
 Le -d sert à lancer le container
+
+Maintenant il suffit de tester en rentrant son adresse ip dans un navigateur (commande "ip a" pour connaître son adresse") comme ceci : 192.168.x.x:8080
+Vous arriverez sur l'interface de wordpress.
 
 # Installation de zabbix : 
 
