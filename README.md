@@ -8,45 +8,17 @@
 
 Pour commencer, j'ai utilisé ce script bash dans mon fichier install_docker.sh :
 
-# Installation de docker et docker-compose :
+# Installation de docker
 
-#!/bin/bash
+il faudra réaliser les commandes suivantes :
 
-
-if [ "$EUID" -ne 0 ]; then
-  echo "Veuillez exécuter ce script en tant que root ou avec sudo."
-  exit 1
-fi
-
-
-echo "Mise à jour des paquets et installation des dépendances..."
-apt update && apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-echo "Ajout de la clé GPG de Docker..."
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-
-echo "Ajout du dépôt Docker..."
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-
-echo "Installation de Docker..."
-apt update && apt install -y docker-ce docker-ce-cli containerd.io
-
-
-echo "Vérification de l'installation de Docker..."
-docker --version
-if [ $? -ne 0 ]; then
-  echo "L'installation de Docker a échoué."
-  exit 1
-fi
-
+"apt install git"
+"git clone https://github.com/Damien5261/TP.bilan"
+la commande suivante : "ls" va nous permettre de voir si le répertoire a été installer.
+"cd TP.bilan" pour se rendre dans le répertoire
+"chmod +x docker.compose" va permettre de rendre le fichier éxécutable
+Et il suffit maintenant de l'installer avec la commande "./docker.compose"
+ 
 # Installe de Docker Compose
 DOCKER_COMPOSE_VERSION="2.1.1" # Dernière version stable à vérifier
 echo "Installation de Docker Compose version $DOCKER_COMPOSE_VERSION..."
