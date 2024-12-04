@@ -13,7 +13,7 @@ Voici les commandes à faire :
 "apt install git"
 
 
-"git clone https://github.com/Damien5261/TP.bilan" pour installer le répertoire Git contenant mes fichiers
+"git clone https://github.com/Damien5261/TP.bilan" pour installer le répertoire Git contenant mes fichiers <br>
 la commande suivante : "ls" va nous permettre de voir si le répertoire a été installer.
 "cd TP.bilan" pour se rendre dans le répertoire , et avec une nouvelle fois la commande "ls" il devrait y avoir les fichiers suivant : install.docker , install.docker-compose , wordpress ,zabbix
 Pour tout ses fichiers il faudra faire la commande "chmod +x nom du fichier" par exemple : "chmod +x wordpress" ou "chmod +x install.docker" etc.. pour permettre aux fichiers d'être éxécutable.
