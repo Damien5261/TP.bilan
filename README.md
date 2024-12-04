@@ -20,9 +20,9 @@ Voici les commandes à faire :
 
 la commande suivante : "ls" va nous permettre de voir si le répertoire a été installer.
 
-"cd TP.bilan" pour se rendre dans le répertoire , et avec une nouvelle fois la commande "ls" il devrait y avoir les fichiers suivant : install.docker , install.docker-compose , wordpress ,zabbix
+"cd TP.bilan" pour se rendre dans le répertoire , et avec une nouvelle fois la commande "ls" il devrait y avoir les fichiers suivant : install.docker , install.docker-compose , wordpress ,zabbix, README.MD
 
-Pour tout ses fichiers il faudra faire la commande "chmod +x nom du fichier" par exemple : "chmod +x wordpress" ou "chmod +x install.docker" etc.. pour permettre aux fichiers d'être éxécutable.
+Pour tout ses fichiers sauf README.MD il faudra faire la commande "chmod +x nom du fichier" par exemple : "chmod +x wordpress" ou "chmod +x install.docker" etc.. pour permettre aux fichiers d'être éxécutable.
 
 # Installation de docker
 
