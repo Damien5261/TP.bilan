@@ -1,5 +1,3 @@
-Voici mon code pour installer zabbix :
-
 version: '3.5'
 
 services:
