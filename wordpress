@@ -1,4 +1,1 @@
-Pour installer wordpress avec docker  il suffira juste de lancer un docker run -p 8080:80 -d wordpress
-
-Le -p sert à désigner le port que nous souhaitons attribuer au container. Ceci est complètement modifiable à notre guise , dans mon cas mon wordpress est en 192.160.20.78:8080
-Le -d sert à lancer le container
+docker pull wordpress
