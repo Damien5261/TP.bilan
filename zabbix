@@ -1,5 +1,6 @@
-version: '3.5'
+docker pull zabbix/zabbix-web-nginx-mysql
 
+version: '3.5'
 services:
   zabbix-db:
     image: zabbix/zabbix-server-mysql:latest
