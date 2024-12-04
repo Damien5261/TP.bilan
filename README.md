@@ -64,7 +64,6 @@ if [ $? -ne 0 ]; then
 fi
 
 # Active et démarre le service Docker
-echo "Activation et démarrage du service Docker..."
 systemctl enable docker
 systemctl start docker
 
